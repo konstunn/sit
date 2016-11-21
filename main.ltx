@@ -13,9 +13,13 @@
 \usepackage{enumitem}
 \usepackage[textsize=tiny]{todonotes}
 \usepackage{multirow}
+\usepackage{caption}
+\usepackage{threeparttable}
 
 
 \setlist[description]{leftmargin=\parindent,labelindent=\parindent}
+
+\setlength{\footskip}{20pt}
 
 \begin{document}
 
@@ -79,73 +83,88 @@ WireShark.
 		\item подключиться к любому ftp-серверу.
 	\end{itemize}
 	
-	\item Заполнить таблицу 5. Исходные данные для таблицы представлены в 
-	отчете Statistics/Summary. При заполнении таблицы обратите внимание на 
-	соблюдение размерности величин (Кб, Мб, Мбит).
+\item Заполнить таблицу \ref{table:summary}. Исходные данные для таблицы 
+	представлены в отчете Statistics/Summary. При заполнении таблицы обратите 
+	внимание на соблюдение размерности величин (Кб, Мб, Мбит).
 
-	\begin{center}
+	\begin{table}[h]
+	\centering
+	\begin{threeparttable}
+	\captionsetup{justification=raggedleft,singlelinecheck=false}
+	\caption{ }
+	\label{table:summary}
 		\begin{tabular}{|l|c|}
 			\hline
-			Параметр & Значение \\ \hline
-			Время захвата, мин & 10 мин 30 сек \\ \hline
-			Количество захваченных пакетов & 14860 \\ \hline
-			Объем, Мб & 7.5 \\ \hline
-			Средний размер пакета, байт & 527.5 \\ \hline
-			Средняя скорость, пакетов/сек & 23.6 \\ \hline
-			Средняя скорость, Кбит/сек & 96.7 \\ \hline 
+			Параметр												& Значение			\\ \hline
+			Время захвата, мин							& 10 мин 30 сек \\ \hline
+			Количество захваченных пакетов	& 14860					\\ \hline
+			Объем, Мб												& 7.5						\\ \hline
+			Средний размер пакета, байт			& 527.5					\\ \hline
+			Средняя скорость, пакетов/сек		& 23.6					\\ \hline
+			Средняя скорость, Кбит/сек			& 96.7					\\ \hline 
 		\end{tabular}
-	\end{center}
+	\end{threeparttable}
+	\end{table}
 	
-	\centerline{Таблица 5.}
-	
-	\item Составить таблицу 6 распределения трафика по протоколам. Исходные 
-	данные для таблицы можно получить из отчета Statistics/Protocol Hierarchy.
+\item Составить таблицу \ref{table:protohie} распределения трафика по 
+	протоколам. Исходные данные для таблицы можно получить из отчета 
+	Statistics/Protocol Hierarchy.
 
-	\begin{center}
+	\begin{table}[h]
+	\centering
+	\begin{threeparttable}
+	\captionsetup{justification=raggedleft,singlelinecheck=false}
+	\caption{ }
+	\label{table:protohie}
 		\begin{tabular}{|l|c|c|}
 			\hline
-			Протокол & Трафик, Кбайт & Трафик, \% \\ \hline
-			HTTP & 670 & 8.6 \\ \hline
-			FTP & 5.4 & 0.1 \\ \hline
-			ARP & 3.6 & 0.05 \\ \hline
-			ICMP & 28.3 & 0.4 \\ \hline
-			SSL & 5879 & 89 \\ \hline
-			TCP data & 89 & 1.1 \\ \hline
-			Итого & 6675.3 & 100 \\ \hline
+			Протокол	& Трафик, Кбайт	& Трафик, \%	\\ \hline
+			HTTP			& 670						& 8.6					\\ \hline
+			FTP				& 5.4						& 0.1					\\ \hline
+			ARP				& 3.6						& 0.05				\\ \hline
+			ICMP			& 28.3					& 0.4					\\ \hline
+			SSL				& 5879					& 89					\\ \hline
+			TCP data	& 89						& 1.1					\\ \hline
+			Итого			& 6675.3				& 100					\\ \hline
 		\end{tabular}
-	\end{center}
-	\centerline {Таблица 6.}
+	\end{threeparttable}
+	\end{table}
 	
-	\item Заполнить таблицу 7 распределения Ethernet-трафика по узлам сети. 
-	Исходные данные для заполнения таблицы получить из отчета  
+\item Заполнить таблицу \ref{table:ep} распределения Ethernet-трафика по узлам 
+	сети. Исходные данные для заполнения таблицы получить из отчета 
 	Statistics/Endpoint list/Ethernet.
 	 
-	\begin{center}
+	\begin{table}[h]
+	\centering
+	\begin{threeparttable}
+	\captionsetup{justification=raggedleft,singlelinecheck=false}
+	\caption{ }
+	\label{table:ep}
 	\begin{tabular}{|c|c|c|c|c|c|c|c|}
 		\hline
-    		\multirow{3}{*}{MAC-адрес} & \multirow{3}{*}{IP-адрес} & 
-    			\multicolumn{6}{|c|}{Трафик} \\ \cline{3-8}
- 		&  & \multicolumn{2}{|c|}{входящий} & \multicolumn{2}{|c|}{исходящий} & 
- 			\multicolumn{2}{|c|}{общий} \\ \cline{3-8}
+		\multirow{3}{*}{MAC-адрес} & \multirow{3}{*}{IP-адрес} & 
+			\multicolumn{6}{|c|}{Трафик} \\ \cline{3-8}
+		&  & \multicolumn{2}{|c|}{входящий} & \multicolumn{2}{|c|}{исходящий} & 
+			\multicolumn{2}{|c|}{общий} \\ \cline{3-8}
 		&  & Мб & \% & Мб & \% & Мб & \% \\ \hline
-    		&  &  &  &  &  &  &  \\ \hline
+		&  &  &  &  &  &  &  \\ \hline
 		\multicolumn{2}{|c|}{ИТОГО} & & 100 & & 100 & & 100 \\ \hline
 	\end{tabular}
-	\end{center}
+	\end{threeparttable}
+	\end{table}
 
-	\centerline{Таблица 7.}
-	
-	\item По данным табл. 5 определить относительную загрузку сети (в \%) за 
-	контрольный период времени по формуле:
+	\item По данным табл. \ref{table:summary} определить относительную загрузку 
+		сети (в \%) за контрольный период времени по формуле:
 	
 	\[ \mbox{Загрузка} = \frac{(\mbox{Трафик, МБит} / \mbox{Время, сек}) \cdot 100)}
 	{\mbox{(Пропускная способность, Мбит / сек)}} \]
 	
-	\item По данным табл. 6 сделать выводы о качественном составе трафика, т.е. 
-	о соотношении прикладных и служебных протоколов.
+	\item По данным табл. \ref{table:protohie} сделать выводы о качественном 
+		составе трафика, т.е. о соотношении прикладных и служебных протоколов.
 
-	\item По данным табл. 7 определить, какие из узлов являются наиболее
-		загруженными с учетом направления трафика (исходящий, входящий, общий).
+	\item По данным табл. \ref{table:protohie} определить, какие из узлов 
+		являются наиболее загруженными с учетом направления трафика (исходящий, 
+		входящий, общий).
 \end{enumerate}
 		
 \section*{Заключение}
