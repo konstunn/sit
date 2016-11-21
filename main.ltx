@@ -12,6 +12,7 @@
 \usepackage{csquotes}
 \usepackage{enumitem}
 \usepackage[textsize=tiny]{todonotes}
+\usepackage{multirow}
 
 
 \setlist[description]{leftmargin=\parindent,labelindent=\parindent}
@@ -116,7 +117,18 @@ WireShark.
 	Исходные данные для заполнения таблицы получить из отчета  
 	Statistics/Endpoint list/Ethernet.
 	 
-	\bigbreak
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|}
+		\hline
+    		\multirow{3}{*}{MAC-адрес} & \multirow{3}{*}{IP-адрес} & \multicolumn{6}{|c|}{Трафик} \\ \cline{3-8}
+ 		&  & \multicolumn{2}{|c|}{входящий} & \multicolumn{2}{|c|}{исходящий}  & \multicolumn{2}{|c|}{общий} \\ 
+			\cline{3-8}
+		&  & Мб & \% & Мб & \% & Мб & \% \\ \hline
+    		&  &  &  &  &  &  &  \\ \hline
+		\multicolumn{2}{|c|}{ИТОГО} & & 100 & & 100 & & 100 \\ \hline
+	\end{tabular}
+	\end{center}
+
 	\centerline{Таблица 7.}
 	
 	\item По данным табл. 5 определить относительную загрузку сети (в \%) за 
