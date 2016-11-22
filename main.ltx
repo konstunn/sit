@@ -4,8 +4,19 @@
 \usepackage{cmap}
 
 \usepackage[T2A]{fontenc}
-\usepackage[utf8]{inputenc}
+\usepackage[utf8x]{inputenc}
 \usepackage[russian]{babel}
+
+\usepackage{ucs}                                              %%
+\usepackage{color}                                            %%
+\usepackage{array}                                            %%
+\usepackage{longtable}                                        %%
+\usepackage{calc}                                             %%
+\usepackage{hhline}                                           %%
+\usepackage{ifthen}                                           %%
+%%  optionally (for landscape tables embedded in another document): %%
+\usepackage{lscape}                                           %%
+
 
 \usepackage[a4paper,margin=1cm,footskip=.5cm,left=2cm,right=1.5cm,top=1.5cm,bottom=1.5cm]{geometry}
 \usepackage{textcase}
@@ -16,7 +27,6 @@
 \usepackage{caption}
 \usepackage{threeparttable}
 \usepackage{fltpoint}
-\usepackage{spreadtab}
 
 \setlist[description]{leftmargin=\parindent,labelindent=\parindent}
 
@@ -172,32 +182,13 @@ WireShark.
 \item Заполнить таблицу \ref{table:ep} распределения Ethernet-трафика по узлам 
 	сети. Исходные данные для заполнения таблицы получить из отчета 
 	Statistics/Endpoint list/Ethernet.
-	 
-	\begin{table}[h]
-	\centering
-	\begin{threeparttable}
-	\captionsetup{justification=raggedleft,singlelinecheck=false}
-	\caption{ }
-	\label{table:ep}
-	\begin{tabular}{|c|c|c|c|c|c|c|c|}
-		\hline
-		\multirow{3}{*}{MAC-адрес} & \multirow{3}{*}{IP-адрес} & 
-			\multicolumn{6}{|c|}{Трафик} \\ \cline{3-8}
-		&  & \multicolumn{2}{|c|}{входящий} & \multicolumn{2}{|c|}{исходящий} & 
-			\multicolumn{2}{|c|}{общий} \\ \cline{3-8}
-		&  & байт & \% & байт & \% & байт & \% \\ \hline
-		bc:5f:f4:04:19:10	& 37.193.43.224   & 13 		 	&  	&  &  &  &  \\ \hline
-		00:00:5e:00:01:1b & 37.193.43.1 	  & 1331 k 	&		&  &  &  &  \\ \hline
-		dc:0e:a1:b0:c6:98 & 37.193.43.235   &  	 			&		&  &  &  &  \\ \hline
-		08:81:f4:8a:dd:b5 & 37.193.43.254 	&  	  		&  	&  &	&	 &	\\ \hline
-		38:2c:4a:5d:e8:5d & 37.193.43.99 	  &  	   		&  	&  &	&	 &	\\ \hline
-		08:81:f4:8a:39:b5 & 37.193.43.253 	&  	   		&  	&  &	&  &	\\ \hline
-		ec:08:6b:05:a3:63 & 37.193.43.142 	&  	    	&  	&  &  &  &	\\ \hline
-		\multicolumn{2}{|c|}{ИТОГО} & & 100 &  & 100 & & 100 \\ \hline
-	\end{tabular}
-	\end{threeparttable}
-	\end{table}
 
+	\def\inputGnumericTable{}
+	 
+	\newpage
+	\label{table:ep}
+	\input{book.tex}
+	
 	\item По данным табл. \ref{table:summary} определить относительную загрузку 
 		сети (в \%) за контрольный период времени по формуле:
 	
