@@ -15,7 +15,8 @@
 \usepackage{multirow}
 \usepackage{caption}
 \usepackage{threeparttable}
-
+\usepackage{fltpoint}
+\usepackage{spreadtab}
 
 \setlist[description]{leftmargin=\parindent,labelindent=\parindent}
 
@@ -87,6 +88,12 @@ WireShark.
 	представлены в отчете Statistics/Summary. При заполнении таблицы обратите 
 	внимание на соблюдение размерности величин (Кб, Мб, Мбит).
 
+	\fpDecimalSign{.}
+	\fpDiv{\kbytes}{43164534}{1024}
+
+	\fpDiv{\mbytes}{\kbytes}{1024}
+	\fpRound{\mbytes}{\mbytes}{-1}
+
 	\begin{table}[h]
 	\centering
 	\begin{threeparttable}
@@ -96,12 +103,12 @@ WireShark.
 		\begin{tabular}{|l|c|}
 			\hline
 			Параметр												& Значение			\\ \hline
-			Время захвата, мин							& 10 мин 30 сек \\ \hline
-			Количество захваченных пакетов	& 14860					\\ \hline
-			Объем, Мб												& 7.5						\\ \hline
-			Средний размер пакета, байт			& 527.5					\\ \hline
-			Средняя скорость, пакетов/сек		& 23.6					\\ \hline
-			Средняя скорость, Кбит/сек			& 96.7					\\ \hline 
+			Время захвата, мин							& 12 						\\ \hline
+			Количество захваченных пакетов	& 51123					\\ \hline
+			Объем, Мб												& \mbytes 			\\ \hline
+			Средний размер пакета, байт			& 844.5					\\ \hline
+			Средняя скорость, пакетов/сек		& 69.0					\\ \hline
+			Средняя скорость, бит/сек				& 466 k					\\ \hline 
 		\end{tabular}
 	\end{threeparttable}
 	\end{table}
@@ -109,6 +116,40 @@ WireShark.
 \item Составить таблицу \ref{table:protohie} распределения трафика по 
 	протоколам. Исходные данные для таблицы можно получить из отчета 
 	Statistics/Protocol Hierarchy.
+
+	\fpRegSet{frameb}{43164534}
+	\fpRegSet{arpb}{217616}
+	\fpRegSet{icmpb}{51292}
+	\fpRegSet{sslb}{34852441}
+
+	\fpDiv{\httpkb}{3728441}{1024}
+	\fpRound{\httpkb}{\httpkb}{-1}
+
+	\fpRegGet{arpb}{\arpb}
+	\fpDiv{\arpkb}{\arpb}{1024}
+	\fpRound{\arpkb}{\arpkb}{-1}
+
+	\fpRegGet{icmpb}{\icmpb}
+	\fpDiv{\icmpkb}{\icmpb}{1024}
+	\fpRound{\icmpkb}{\icmpkb}{-1}
+
+	\fpRegGet{sslb}{\sslb}
+	\fpDiv{\sslkb}{\sslb}{1024}
+	\fpRound{\sslkb}{\sslkb}{-1}
+
+	\fpAdd{\tot}{\httpkb}{0}
+	\fpAdd{\tot}{\tot}{\arpkb}
+	\fpAdd{\tot}{\tot}{\icmpkb}
+	\fpAdd{\tot}{\tot}{\sslkb}
+
+	\fpDiv{\htpc}{\httpkb}{\tot}
+	\fpMul{\htpc}{\htpc}{100}
+	\fpDiv{\arpc}{\arpkb}{\tot}
+	\fpMul{\arpc}{\arpc}{100}
+	\fpDiv{\icmpc}{\icmpkb}{\tot}
+	\fpMul{\icmpc}{\icmpc}{100}
+	\fpDiv{\sslpc}{\sslkb}{\tot}
+	\fpMul{\sslpc}{\sslpc}{100}
 
 	\begin{table}[h]
 	\centering
@@ -119,13 +160,11 @@ WireShark.
 		\begin{tabular}{|l|c|c|}
 			\hline
 			Протокол	& Трафик, Кбайт	& Трафик, \%	\\ \hline
-			HTTP			& 670						& 8.6					\\ \hline
-			FTP				& 5.4						& 0.1					\\ \hline
-			ARP				& 3.6						& 0.05				\\ \hline
-			ICMP			& 28.3					& 0.4					\\ \hline
-			SSL				& 5879					& 89					\\ \hline
-			TCP data	& 89						& 1.1					\\ \hline
-			Итого			& 6675.3				& 100					\\ \hline
+			HTTP			& \httpkb				&	\htpc				\\ \hline
+			ARP				& \arpkb				& \arpc				\\ \hline
+			ICMP			& \icmpkb				& \icmpc			\\ \hline
+			SSL				& \sslkb 				& \sslpc			\\ \hline
+			Итого			& \tot 					& 100					\\ \hline
 		\end{tabular}
 	\end{threeparttable}
 	\end{table}
@@ -146,9 +185,15 @@ WireShark.
 			\multicolumn{6}{|c|}{Трафик} \\ \cline{3-8}
 		&  & \multicolumn{2}{|c|}{входящий} & \multicolumn{2}{|c|}{исходящий} & 
 			\multicolumn{2}{|c|}{общий} \\ \cline{3-8}
-		&  & Мб & \% & Мб & \% & Мб & \% \\ \hline
-		&  &  &  &  &  &  &  \\ \hline
-		\multicolumn{2}{|c|}{ИТОГО} & & 100 & & 100 & & 100 \\ \hline
+		&  & байт & \% & байт & \% & байт & \% \\ \hline
+		bc:5f:f4:04:19:10	& 37.193.43.224   & 13 		 	&  	&  &  &  &  \\ \hline
+		00:00:5e:00:01:1b & 37.193.43.1 	  & 1331 k 	&		&  &  &  &  \\ \hline
+		dc:0e:a1:b0:c6:98 & 37.193.43.235   &  	 			&		&  &  &  &  \\ \hline
+		08:81:f4:8a:dd:b5 & 37.193.43.254 	&  	  		&  	&  &	&	 &	\\ \hline
+		38:2c:4a:5d:e8:5d & 37.193.43.99 	  &  	   		&  	&  &	&	 &	\\ \hline
+		08:81:f4:8a:39:b5 & 37.193.43.253 	&  	   		&  	&  &	&  &	\\ \hline
+		ec:08:6b:05:a3:63 & 37.193.43.142 	&  	    	&  	&  &  &  &	\\ \hline
+		\multicolumn{2}{|c|}{ИТОГО} & & 100 &  & 100 & & 100 \\ \hline
 	\end{tabular}
 	\end{threeparttable}
 	\end{table}
