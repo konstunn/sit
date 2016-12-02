@@ -2,7 +2,7 @@
 .PHONY: main.pdf
 
 main.pdf: main.ltx
-	pdflatex main.ltx
+	pdflatex $<
 
 view: main.pdf
 	xdg-open main.pdf || explorer main.pdf
