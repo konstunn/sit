@@ -3,6 +3,7 @@
 
 main.pdf: main.ltx
 	pdflatex $<
+	pdflatex $<
 
 view: main.pdf
 	xdg-open main.pdf || explorer main.pdf
