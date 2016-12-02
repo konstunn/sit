@@ -5,7 +5,7 @@ main.pdf: main.ltx
 	pdflatex main.ltx
 
 view: main.pdf
-	evince main.pdf
+	xdg-open main.pdf || explorer main.pdf
 
 %.pdf : %.tex
 	pdflatex $<
