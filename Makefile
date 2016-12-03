@@ -1,8 +1,8 @@
 
-.PHONY: main.pdf
-
-main.pdf: main.ltx
+%.aux: %.ltx
 	pdflatex $<
+
+main.pdf: main.ltx main.aux
 	pdflatex $<
 
 PCAPOUTFILE="out.pcapng"
