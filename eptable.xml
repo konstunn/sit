@@ -25,7 +25,7 @@
   </gnm:Attributes>
   <office:document-meta xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:ooo="http://openoffice.org/2004/office" office:version="1.2">
     <office:meta>
-      <dc:date>2016-11-22T12:16:41Z</dc:date>
+      <dc:date>2016-12-03T05:44:59Z</dc:date>
       <meta:creation-date>2016-11-22T10:41:14Z</meta:creation-date>
     </office:meta>
   </office:document-meta>
@@ -39,7 +39,7 @@
   <gnm:Sheets>
     <gnm:Sheet DisplayFormulas="0" HideZero="0" HideGrid="0" HideColHeader="0" HideRowHeader="0" DisplayOutlines="1" OutlineSymbolsBelow="1" OutlineSymbolsRight="1" Visibility="GNM_SHEET_VISIBILITY_VISIBLE" GridColor="0:0:0">
       <gnm:Name>Лист1</gnm:Name>
-      <gnm:MaxCol>7</gnm:MaxCol>
+      <gnm:MaxCol>8</gnm:MaxCol>
       <gnm:MaxRow>10</gnm:MaxRow>
       <gnm:Zoom>1</gnm:Zoom>
       <gnm:Names>
@@ -223,7 +223,25 @@
             </gnm:StyleBorder>
           </gnm:Style>
         </gnm:StyleRegion>
-        <gnm:StyleRegion startCol="8" startRow="0" endCol="255" endRow="65535">
+        <gnm:StyleRegion startCol="8" startRow="0" endCol="255" endRow="2">
+          <gnm:Style HAlign="GNM_HALIGN_GENERAL" VAlign="GNM_VALIGN_BOTTOM" WrapText="0" ShrinkToFit="0" Rotation="0" Shade="0" Indent="0" Locked="1" Hidden="0" Fore="0:0:0" Back="FFFF:FFFF:FFFF" PatternColor="0:0:0" Format="General">
+            <gnm:Font Unit="10" Bold="0" Italic="0" Underline="0" StrikeThrough="0" Script="0">Sans</gnm:Font>
+          </gnm:Style>
+        </gnm:StyleRegion>
+        <gnm:StyleRegion startCol="8" startRow="3" endCol="8" endRow="9">
+          <gnm:Style HAlign="GNM_HALIGN_GENERAL" VAlign="GNM_VALIGN_BOTTOM" WrapText="0" ShrinkToFit="0" Rotation="0" Shade="0" Indent="0" Locked="1" Hidden="0" Fore="0:0:0" Back="FFFF:FFFF:FFFF" PatternColor="0:0:0" Format="0.00">
+            <gnm:Font Unit="10" Bold="0" Italic="0" Underline="0" StrikeThrough="0" Script="0">Sans</gnm:Font>
+            <gnm:StyleBorder>
+              <gnm:Left Style="1" Color="0:0:0"/>
+            </gnm:StyleBorder>
+          </gnm:Style>
+        </gnm:StyleRegion>
+        <gnm:StyleRegion startCol="8" startRow="10" endCol="255" endRow="65535">
+          <gnm:Style HAlign="GNM_HALIGN_GENERAL" VAlign="GNM_VALIGN_BOTTOM" WrapText="0" ShrinkToFit="0" Rotation="0" Shade="0" Indent="0" Locked="1" Hidden="0" Fore="0:0:0" Back="FFFF:FFFF:FFFF" PatternColor="0:0:0" Format="General">
+            <gnm:Font Unit="10" Bold="0" Italic="0" Underline="0" StrikeThrough="0" Script="0">Sans</gnm:Font>
+          </gnm:Style>
+        </gnm:StyleRegion>
+        <gnm:StyleRegion startCol="9" startRow="3" endCol="255" endRow="9">
           <gnm:Style HAlign="GNM_HALIGN_GENERAL" VAlign="GNM_VALIGN_BOTTOM" WrapText="0" ShrinkToFit="0" Rotation="0" Shade="0" Indent="0" Locked="1" Hidden="0" Fore="0:0:0" Back="FFFF:FFFF:FFFF" PatternColor="0:0:0" Format="General">
             <gnm:Font Unit="10" Bold="0" Italic="0" Underline="0" StrikeThrough="0" Script="0">Sans</gnm:Font>
           </gnm:Style>
@@ -232,7 +250,7 @@
       <gnm:Cols DefaultSizePts="48">
         <gnm:ColInfo No="0" Unit="105.8"/>
         <gnm:ColInfo No="1" Unit="80.25"/>
-        <gnm:ColInfo No="2" Unit="47.25"/>
+        <gnm:ColInfo No="2" Unit="54"/>
         <gnm:ColInfo No="3" Unit="33.75"/>
         <gnm:ColInfo No="4" Unit="54"/>
         <gnm:ColInfo No="5" Unit="33.75"/>
@@ -243,8 +261,8 @@
         <gnm:RowInfo No="0" Unit="13.5"/>
         <gnm:RowInfo No="2" Unit="13.5" Count="9"/>
       </gnm:Rows>
-      <gnm:Selections CursorCol="2" CursorRow="3">
-        <gnm:Selection startCol="2" startRow="3" endCol="2" endRow="9"/>
+      <gnm:Selections CursorCol="11" CursorRow="7">
+        <gnm:Selection startCol="11" startRow="7" endCol="11" endRow="7"/>
       </gnm:Selections>
       <gnm:Cells>
         <gnm:Cell Row="0" Col="0" ValueType="60">MAC-адрес</gnm:Cell>
@@ -261,66 +279,66 @@
         <gnm:Cell Row="2" Col="7" ValueType="60">%</gnm:Cell>
         <gnm:Cell Row="3" Col="0" ValueType="60">bc:5f:f4:04:19:10</gnm:Cell>
         <gnm:Cell Row="3" Col="1" ValueType="60">37.193.43.224</gnm:Cell>
-        <gnm:Cell Row="3" Col="2">=1702/1024</gnm:Cell>
-        <gnm:Cell Row="3" Col="3" ExprID="1">=C4/$C$11*100</gnm:Cell>
-        <gnm:Cell Row="3" Col="4">=2092/1024</gnm:Cell>
-        <gnm:Cell Row="3" Col="5" ExprID="2">=E4/$E$11*100</gnm:Cell>
-        <gnm:Cell Row="3" Col="6" ExprID="3">=C4+E4</gnm:Cell>
-        <gnm:Cell Row="3" Col="7" ExprID="4">=G4/$G$11*100</gnm:Cell>
+        <gnm:Cell Row="3" Col="2" ExprID="1">=2092/1024</gnm:Cell>
+        <gnm:Cell Row="3" Col="3" ExprID="2">=C4/$C$11*100</gnm:Cell>
+        <gnm:Cell Row="3" Col="4" ExprID="3">=1702/1024</gnm:Cell>
+        <gnm:Cell Row="3" Col="5" ExprID="4">=E4/$E$11*100</gnm:Cell>
+        <gnm:Cell Row="3" Col="6" ExprID="5">=C4+E4</gnm:Cell>
+        <gnm:Cell Row="3" Col="7" ExprID="6">=G4/$G$11*100</gnm:Cell>
         <gnm:Cell Row="4" Col="0" ValueType="60">00:00:5e:00:01:1b</gnm:Cell>
         <gnm:Cell Row="4" Col="1" ValueType="60">37.193.43.1</gnm:Cell>
-        <gnm:Cell Row="4" Col="2" ValueType="40">1331</gnm:Cell>
-        <gnm:Cell Row="4" Col="3" ExprID="1"/>
-        <gnm:Cell Row="4" Col="4">=420/1024</gnm:Cell>
-        <gnm:Cell Row="4" Col="5" ExprID="2"/>
-        <gnm:Cell Row="4" Col="6" ExprID="3"/>
-        <gnm:Cell Row="4" Col="7" ExprID="4"/>
+        <gnm:Cell Row="4" Col="2" ExprID="7">=420/1024</gnm:Cell>
+        <gnm:Cell Row="4" Col="3" ExprID="2"/>
+        <gnm:Cell Row="4" Col="4" ValueType="40">1331</gnm:Cell>
+        <gnm:Cell Row="4" Col="5" ExprID="4"/>
+        <gnm:Cell Row="4" Col="6" ExprID="5"/>
+        <gnm:Cell Row="4" Col="7" ExprID="6"/>
         <gnm:Cell Row="5" Col="0" ValueType="60">dc:0e:a1:b0:c6:98</gnm:Cell>
         <gnm:Cell Row="5" Col="1" ValueType="60">37.193.43.235</gnm:Cell>
-        <gnm:Cell Row="5" Col="2" ValueType="40">0</gnm:Cell>
-        <gnm:Cell Row="5" Col="3" ExprID="1"/>
-        <gnm:Cell Row="5" Col="4">=3564/1024</gnm:Cell>
-        <gnm:Cell Row="5" Col="5" ExprID="2"/>
-        <gnm:Cell Row="5" Col="6" ExprID="3"/>
-        <gnm:Cell Row="5" Col="7" ExprID="4"/>
+        <gnm:Cell Row="5" Col="2" ExprID="8">=3564/1024</gnm:Cell>
+        <gnm:Cell Row="5" Col="3" ExprID="2"/>
+        <gnm:Cell Row="5" Col="4" ValueType="40">0</gnm:Cell>
+        <gnm:Cell Row="5" Col="5" ExprID="4"/>
+        <gnm:Cell Row="5" Col="6" ExprID="5"/>
+        <gnm:Cell Row="5" Col="7" ExprID="6"/>
         <gnm:Cell Row="6" Col="0" ValueType="60">08:81:f4:8a:dd:b5</gnm:Cell>
         <gnm:Cell Row="6" Col="1" ValueType="60">37.193.43.254</gnm:Cell>
-        <gnm:Cell Row="6" Col="2" ValueType="40">126</gnm:Cell>
-        <gnm:Cell Row="6" Col="3" ExprID="1"/>
-        <gnm:Cell Row="6" Col="4">=41*1024</gnm:Cell>
-        <gnm:Cell Row="6" Col="5" ExprID="2"/>
-        <gnm:Cell Row="6" Col="6" ExprID="3"/>
-        <gnm:Cell Row="6" Col="7" ExprID="4"/>
+        <gnm:Cell Row="6" Col="2" ExprID="9">=41*1024</gnm:Cell>
+        <gnm:Cell Row="6" Col="3" ExprID="2"/>
+        <gnm:Cell Row="6" Col="4" ValueType="40">126</gnm:Cell>
+        <gnm:Cell Row="6" Col="5" ExprID="4"/>
+        <gnm:Cell Row="6" Col="6" ExprID="5"/>
+        <gnm:Cell Row="6" Col="7" ExprID="6"/>
         <gnm:Cell Row="7" Col="0" ValueType="60">38:2c:4a:5d:e8:5d</gnm:Cell>
         <gnm:Cell Row="7" Col="1" ValueType="60">37.193.43.99</gnm:Cell>
-        <gnm:Cell Row="7" Col="2">=254/1024</gnm:Cell>
-        <gnm:Cell Row="7" Col="3" ExprID="1"/>
-        <gnm:Cell Row="7" Col="4">=553/1024</gnm:Cell>
-        <gnm:Cell Row="7" Col="5" ExprID="2"/>
-        <gnm:Cell Row="7" Col="6" ExprID="3"/>
-        <gnm:Cell Row="7" Col="7" ExprID="4"/>
+        <gnm:Cell Row="7" Col="2" ExprID="10">=553/1024</gnm:Cell>
+        <gnm:Cell Row="7" Col="3" ExprID="2"/>
+        <gnm:Cell Row="7" Col="4" ExprID="11">=254/1024</gnm:Cell>
+        <gnm:Cell Row="7" Col="5" ExprID="4"/>
+        <gnm:Cell Row="7" Col="6" ExprID="5"/>
+        <gnm:Cell Row="7" Col="7" ExprID="6"/>
         <gnm:Cell Row="8" Col="0" ValueType="60">08:81:f4:8a:39:b5</gnm:Cell>
         <gnm:Cell Row="8" Col="1" ValueType="60">37.193.43.253</gnm:Cell>
-        <gnm:Cell Row="8" Col="2">=84/1024</gnm:Cell>
-        <gnm:Cell Row="8" Col="3" ExprID="1"/>
-        <gnm:Cell Row="8" Col="4" ValueType="40">128</gnm:Cell>
-        <gnm:Cell Row="8" Col="5" ExprID="2"/>
-        <gnm:Cell Row="8" Col="6" ExprID="3"/>
-        <gnm:Cell Row="8" Col="7" ExprID="4"/>
+        <gnm:Cell Row="8" Col="2" ValueType="40">128</gnm:Cell>
+        <gnm:Cell Row="8" Col="3" ExprID="2"/>
+        <gnm:Cell Row="8" Col="4" ExprID="12">=84/1024</gnm:Cell>
+        <gnm:Cell Row="8" Col="5" ExprID="4"/>
+        <gnm:Cell Row="8" Col="6" ExprID="5"/>
+        <gnm:Cell Row="8" Col="7" ExprID="6"/>
         <gnm:Cell Row="9" Col="0" ValueType="60">ec:08:6b:05:a3:63</gnm:Cell>
         <gnm:Cell Row="9" Col="1" ValueType="60">37.193.43.142</gnm:Cell>
-        <gnm:Cell Row="9" Col="2">=254/1024</gnm:Cell>
-        <gnm:Cell Row="9" Col="3" ExprID="1"/>
-        <gnm:Cell Row="9" Col="4" ValueType="40">303</gnm:Cell>
-        <gnm:Cell Row="9" Col="5" ExprID="2"/>
-        <gnm:Cell Row="9" Col="6" ExprID="3"/>
-        <gnm:Cell Row="9" Col="7" ExprID="4"/>
+        <gnm:Cell Row="9" Col="2" ValueType="40">303</gnm:Cell>
+        <gnm:Cell Row="9" Col="3" ExprID="2"/>
+        <gnm:Cell Row="9" Col="4" ExprID="11"/>
+        <gnm:Cell Row="9" Col="5" ExprID="4"/>
+        <gnm:Cell Row="9" Col="6" ExprID="5"/>
+        <gnm:Cell Row="9" Col="7" ExprID="6"/>
         <gnm:Cell Row="10" Col="0" ValueType="60">ИТОГО</gnm:Cell>
-        <gnm:Cell Row="10" Col="2" ExprID="5">=sum(C4:C10)</gnm:Cell>
+        <gnm:Cell Row="10" Col="2" ExprID="13">=sum(C4:C10)</gnm:Cell>
         <gnm:Cell Row="10" Col="3" ValueType="40">100</gnm:Cell>
-        <gnm:Cell Row="10" Col="4" ExprID="5"/>
+        <gnm:Cell Row="10" Col="4" ExprID="13"/>
         <gnm:Cell Row="10" Col="5" ValueType="40">100</gnm:Cell>
-        <gnm:Cell Row="10" Col="6" ExprID="5"/>
+        <gnm:Cell Row="10" Col="6" ExprID="13"/>
         <gnm:Cell Row="10" Col="7" ValueType="40">100</gnm:Cell>
       </gnm:Cells>
       <gnm:MergedRegions>
@@ -337,8 +355,8 @@
     </gnm:Sheet>
     <gnm:Sheet DisplayFormulas="0" HideZero="0" HideGrid="0" HideColHeader="0" HideRowHeader="0" DisplayOutlines="1" OutlineSymbolsBelow="1" OutlineSymbolsRight="1" Visibility="GNM_SHEET_VISIBILITY_VISIBLE" GridColor="0:0:0">
       <gnm:Name>Лист2</gnm:Name>
-      <gnm:MaxCol>-1</gnm:MaxCol>
-      <gnm:MaxRow>-1</gnm:MaxRow>
+      <gnm:MaxCol>0</gnm:MaxCol>
+      <gnm:MaxRow>0</gnm:MaxRow>
       <gnm:Zoom>1</gnm:Zoom>
       <gnm:Names>
         <gnm:Name>
@@ -397,8 +415,8 @@
     </gnm:Sheet>
     <gnm:Sheet DisplayFormulas="0" HideZero="0" HideGrid="0" HideColHeader="0" HideRowHeader="0" DisplayOutlines="1" OutlineSymbolsBelow="1" OutlineSymbolsRight="1" Visibility="GNM_SHEET_VISIBILITY_VISIBLE" GridColor="0:0:0">
       <gnm:Name>Лист3</gnm:Name>
-      <gnm:MaxCol>-1</gnm:MaxCol>
-      <gnm:MaxRow>-1</gnm:MaxRow>
+      <gnm:MaxCol>0</gnm:MaxCol>
+      <gnm:MaxRow>0</gnm:MaxRow>
       <gnm:Zoom>1</gnm:Zoom>
       <gnm:Names>
         <gnm:Name>
