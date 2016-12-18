@@ -29,6 +29,10 @@
 \usepackage{threeparttable}
 \usepackage{fltpoint}
 
+\usepackage{graphicx}
+\usepackage{float}
+
+
 \setlist[description]{leftmargin=\parindent,labelindent=\parindent}
 
 \setlength{\footskip}{20pt}
@@ -60,9 +64,9 @@
 
 	\begin{flushleft}
 		\begin{tabbing}
-			Группа:\qquad\qquad	\= ПММ-61\\
-			Студент:			\> Горбунов К. К.\\
-			Преподаватель:		\> доц. Кобылянский В. Г.\\
+			Группа:\qquad\qquad \= ПММ-61\\
+			Студент:            \> Горбунов К. К.\\
+			Преподаватель:      \> доц. Кобылянский В. Г.\\
 		\end{tabbing}
 	\end{flushleft}
 
@@ -99,13 +103,20 @@ WireShark.
 	представлены в отчете Statistics / Summary. При заполнении таблицы обратите 
 	внимание на соблюдение размерности величин (Кб, Мб, Мбит).
 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.75\textwidth]{summary}
+		\caption{Снимок окна общей статистики сеанса захвата пакетов.}
+		\label{img:summary}
+	\end{figure}
+
 	\fpDecimalSign{.}
 	\fpDiv{\kbytes}{43164534}{1024}
 
 	\fpDiv{\mbytes}{\kbytes}{1024}
 	\fpRound{\mbytes}{\mbytes}{-1}
 
-	\begin{table}[h]
+	\begin{table}[H]
 	\centering
 	\begin{threeparttable}
 	\captionsetup{justification=raggedleft,singlelinecheck=false}
@@ -123,10 +134,17 @@ WireShark.
 		\end{tabular}
 	\end{threeparttable}
 	\end{table}
-	
+
 \item Составить таблицу \ref{table:protohie} распределения трафика по 
 	протоколам. Исходные данные для таблицы можно получить из отчета 
 	Statistics/Protocol Hierarchy.
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.75\textwidth]{protohie}
+		\caption{Снимок окна с таблицей распределения трафика по протоколам}
+		\label{fig:protohie}
+	\end{figure}
 
 	% fltpoint commands
 	\fpRegSet{frameb}{43164534}
@@ -163,7 +181,7 @@ WireShark.
 	\fpDiv{\sslpc}{\sslkb}{\tot}
 	\fpMul{\sslpc}{\sslpc}{100}
 
-	\begin{table}[h]
+	\begin{table}[H]
 	\centering
 	\begin{threeparttable}
 	\captionsetup{justification=raggedleft,singlelinecheck=false}
@@ -180,33 +198,62 @@ WireShark.
 		\end{tabular}
 	\end{threeparttable}
 	\end{table}
+
+\newpage
 	
 \item Заполнить таблицу \ref{table:ep} распределения Ethernet-трафика по узлам 
 	сети. Исходные данные для заполнения таблицы получить из отчета 
 	Statistics/Endpoint list/Ethernet.
 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.75\textwidth]{epeth}
+		\caption{Снимок окна с таблицей распределения трафика оконечным точкам 
+			Ethernet}
+		\label{fig:epeth}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.75\textwidth]{epip}
+		\caption{Снимок окна с таблицей распределения трафика оконечным точкам IP}
+		\label{fig:epeth}
+	\end{figure}
+
+	\begin{figure}[H]
 	\def\inputGnumericTable{}
-	 
-	\newpage
 	\label{table:ep}
 	\input{eptable.tex}
+	\end{figure}
+
+\newpage	
 	
 	\item По данным табл. \ref{table:summary} определить относительную загрузку 
 		сети (в \%) за контрольный период времени по формуле:
 	
-	\fpRegSet{secs}{720}
-	\fpRegSet{bw}{20}
-	\fpRegSet{mb}{41}
+		\fpRegSet{secs}{720}
+		\fpRegSet{bw}{30}
+		\fpRegSet{mb}{41}
 
-	\fpRegGet{bw}{\bw}
-	\fpRegGet{secs}{\secs}
-	\fpRegGet{mb}{\mb}
+		\fpRegGet{bw}{\bw}
+		\fpRegGet{secs}{\secs}
+		\fpRegGet{mb}{\mb}
 
-	\fpMul{\mbi}{\mb}{8}
+		\fpMul{\mbi}{\mb}{8}
 
 	\[ \mbox{Загрузка} = \frac{(\mbox{Трафик, МБит} / \mbox{Время, сек}) \cdot 100)}
 	{\mbox{(Пропускная способность, Мбит / сек)}} = 
-			\frac{\mb \cdot 8 / \secs \cdot 100}{\bw} = 2.27 \% \]
+			\frac{\mb \cdot 8 / \secs \cdot 100}{\bw} = 1.51 \% \]
+
+	Пропускная способность заявлена поставщиком услуг связи. См. рис. 
+	\ref{img:bw}.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.75\textwidth]{bw}
+		\caption{Фрагмент окна веб-обозревателя с открытой страницей описания тарифа.}
+		\label{img:bw}
+	\end{figure}
 
 	\item По данным табл. \ref{table:protohie} сделать выводы о качественном 
 		составе трафика, т.е. о соотношении прикладных и служебных протоколов.
@@ -216,9 +263,11 @@ WireShark.
 	веб-серверов видео-хостинга с последующим просмотром видео материалов 
 	на соответствующих сайтах.
 
+	%\newpage
+
 	Проанализировав содержимое таблицы \ref{table:protohie}, можно сделать вывод
 	что большая часть трафика приходится на протокол SSL (\sslpc \%). 
-	
+
 	Действительно, в современном пространстве сети Интернет очень распространен,
 	или даже почти повсеместно используется защищенный протокол HTTPS 
 	(HTTP over SSL, HTTP Secure). Это хорошо согласуется с полученными
@@ -244,7 +293,9 @@ WireShark.
 инструментом, особенно будучи используемым через интерфейс командной строки
 или программный интерфейс, что позволяет автоматизировать мониторинг и
 исследование трафика в сети, разрабатывать сценарии. Также в системе
-имеется поддержка встраиваемого языка сценариев Lua.
+имеется поддержка встраиваемого языка сценариев Lua. Исходные тексты отчета, 
+исходные файлы данной работы можно получить 
+по адресу https://github.com/konstunn/sit .
 
 %\section*{Список источников}
 %\addcontentsline{toc}{section}{Список источников}
