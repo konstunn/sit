@@ -16,7 +16,7 @@ stats: ${PCAPOUTFILE}
 	tshark -q -r $< -z io,stat,0
 
 view: main.pdf
-	xdg-open main.pdf || explorer main.pdf
+	xdg-open main.pdf || explorer main.pdf &
 
 %.pdf : %.tex
 	pdflatex $<
