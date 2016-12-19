@@ -1,0 +1,222 @@
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{cmap}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage{ucs}                                              %%
+\usepackage{color}                                            %%
+\usepackage{xcolor}                                            %%
+\usepackage{array}                                            %%
+\usepackage{longtable}                                        %%
+\usepackage{calc}                                             %%
+\usepackage{hhline}                                           %%
+\usepackage{ifthen}                                           %%
+%%  optionally (for landscape tables embedded in another document): %%
+\usepackage{lscape}                                           %%
+
+
+\usepackage[a4paper,margin=1cm,footskip=.5cm,left=2cm,right=1.5cm,top=1.5cm
+	,bottom=1.5cm]{geometry}
+\usepackage{textcase}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage[textsize=tiny]{todonotes}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{fltpoint}
+
+\usepackage{graphicx}
+\graphicspath{{./img/}}
+
+\usepackage{float}
+
+\usepackage{listings}
+
+
+\setlist[description]{leftmargin=\parindent,labelindent=\parindent}
+
+\setlength{\footskip}{20pt}
+
+\begin{document}
+
+\begin{titlepage}
+
+	\begin{center}
+		Новосибирский государственный технический университет
+		
+		Факультет прикладной математики и информатики
+		
+		Кафедра теоретической и прикладной информатики
+		
+		\vspace{250pt}
+		
+		\textbf{\LARGE{Лабораторная работа № 2}}
+		\medbreak
+		\large{<<Анализ трафика компьютерной сети. Часть 2.\\
+			Изучение механизма работы сетевых протоколов с помошью
+			анализатора пакетов>>}\\
+		\medbreak
+		по дисциплине\\
+		\medbreak
+		<<Сетевые информационные технологии>>
+		\vspace{150pt}
+	\end{center}
+
+	\begin{flushleft}
+		\begin{tabbing}
+			Группа:\qquad\qquad \= ПММ-61\\
+			Студент:            \> Горбунов К. К.\\
+			Преподаватель:      \> доц. Кобылянский В. Г.\\
+			Вариант:            \> 1 \\
+		\end{tabbing}
+	\end{flushleft}
+
+	\begin{center}
+		\vspace{\fill}
+		Новосибирск, 2016 г.
+	\end{center}
+
+\end{titlepage}
+
+\newpage
+
+\section*{Цель работы}
+
+Изучение возможностей программного обеспечения, предназначенного для контроля
+сетевого трафика, и получение практических навыков работы с программой
+WireShark.
+
+\section*{Ход работы}
+
+\begin{enumerate}
+
+\item С помощью анализатора пакетов на примере IP-пакета определить
+	внутреннюю структуру передаваемых по сети кадров согласно модели OSI.
+
+Проведем короткий сеанс захвата трафика, во время которого посетим веб-сайт
+nstu.ru. Рассмотрим кадр, содержащий DNS-запрос о записи nstu.ru, см. рис. .
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{summ}
+	\caption{Однострочное описание рассматриваемого кадра.}
+	\label{fig:dns}
+\end{figure}
+
+Покажем структуру кадра, содержащего DNS-запрос о записи nstu.ru. Начнем с
+уровня прикладных приложений. На каждом из рисунков далее показан кадр и выделены
+те его части, которые соотвестствуют уровням модели OSI.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{dns}
+	\caption{DNS-запрос. Уровень прикладных приложений.}
+	\label{fig:dns}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{udp}
+	\caption{Служебные поля протокола UDP. Транспортный уровень.}
+	\label{fig:udp}
+\end{figure}
+
+%DNS-запрос является данными для протокола UDP.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{ip}
+	\caption{Служебные поля протокола IPv4. Сетевой уровень.}
+	\label{fig:ip}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.75\textwidth]{eth}
+	\caption{Служебные поля протокола Ethernet. Канальный уровень.}
+\end{figure}
+
+Как было показано, пакет каждого более высокоуровневого протокола вложен в поле
+данных протокола более низкого уровня, кроме Ethernet кадра, который,
+разумеется, никуда не вкладывается.
+
+\item Определить с помощью утилиты ping доступность заданных узлов в
+	соответствии с вариантом задания.
+
+Вариант: 1
+
+
+	
+%\begin{lstlisting}
+
+%\end{lstlisting}
+
+
+\item Одновременно с помощью анализатора пакетов определить последовательность
+	и тип прохождения запросов (ICMP, DNS, ARP в соответствии с вариантом).
+	Построить схему работы протоколов и формат одного из сетевых пакетов
+	протокола ICMP.
+
+
+	
+\item С помощью браузера просмотреть несколько страниц на сайте
+	http://www.nstu.ru, потом с помощью анализатора восстановить детали обмена
+	информацией.
+
+
+
+\item Найти в сети с помощью анализатора пакетов широковещательные запросы
+	по протоколам DHCP, ARP и ответы на них. Определить структуру передаваемых
+	по этим протоколам кадров.
+
+
+
+\item Найти в перехваченном трафике пакеты, передаваемые по протоколу в
+	соответствии с вариантом задания, определить назначение данного протокола.
+
+
+
+\item Провести фильтрацию пакетов по примерам, приведенным в таблице №1.
+	Проанализировать буфер захвата.
+	
+
+
+\item Подключиться к некоторому запаролленному FTP-серверу, провести с ним
+	обмен файлами по протоколу FTP. С помощью анализатора пакетов найти
+	перехваченные логины и пароли, а также восстановить детали сессии,
+	имена и, частично, содержимое переданных файлов.
+
+
+
+\item Определить структуру IP-пакета с помощью анализатора пакетов.
+
+
+	
+\item Построить статистику по используемым протоколам за время сеанса работы.
+
+
+
+\item Изучить процесс установления соединения по протоколу TCP.
+
+
+
+\item Провести сканирование соседнего компьютера с помощью сканера портов. 
+	С помощью анализатора пакетов определить логику работы сканера.
+
+
+
+\end{enumerate}
+		
+\section*{Заключение}
+\addcontentsline{toc}{section}{Заключение}
+
+
+%\section*{Список источников}
+%\addcontentsline{toc}{section}{Список источников}
+
+\end{document}
